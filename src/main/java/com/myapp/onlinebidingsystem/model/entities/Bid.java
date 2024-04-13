@@ -12,11 +12,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Bid {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long bidId;
+    private String bidName;
+    private long bid;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "buyer_id")
     private Buyer buyer;

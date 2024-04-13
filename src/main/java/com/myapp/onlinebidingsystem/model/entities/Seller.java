@@ -15,12 +15,11 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Builder
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Seller {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long sellerId;
-    @JsonIgnore
+    private String sellerName;
     @OneToMany(mappedBy = "seller",cascade = CascadeType.ALL)
     private List<Auction> auctionList;
 }

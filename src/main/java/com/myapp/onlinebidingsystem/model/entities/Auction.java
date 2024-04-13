@@ -15,17 +15,16 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Builder
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Auction {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long auctionId;
+    private String auctionName;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "seller_id")
     private Seller seller;
-    private int maxBid;
-    private int minBid;
-    @JsonIgnore
+    private long maxBid;
+    private long minBid;
     @OneToMany(mappedBy = "auction",cascade = CascadeType.ALL)
     private List<Bid> bidList;
 }

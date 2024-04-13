@@ -1,0 +1,17 @@
+package com.myapp.onlinebidingsystem.model.dto;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class BuyerDto {
+    private long buyerId;
+    private String buyerName;
+}
